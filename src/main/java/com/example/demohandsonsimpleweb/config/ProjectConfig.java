@@ -17,6 +17,7 @@ public class ProjectConfig extends WebSecurityConfigurerAdapter {
     private AuthenticationProviderService authenticationProvider;
 
 
+
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
@@ -35,7 +36,7 @@ public class ProjectConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin()
-                .defaultSuccessUrl("main", true);
+                .defaultSuccessUrl("/main", true);
 
         http.authorizeRequests()
                 .anyRequest().authenticated();
